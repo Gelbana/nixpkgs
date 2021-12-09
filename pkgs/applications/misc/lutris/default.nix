@@ -80,16 +80,15 @@ let
     gstreamer
   ];
 
-in
-buildPythonApplication rec {
+in buildPythonApplication rec {
   pname = "lutris-original";
-  version = "0.5.9.1";
+  version = "0.5.9.2";
 
   src = fetchFromGitHub {
-    owner = "lutris";
+    owner = "rachmadaniHaryono";
     repo = "lutris";
-    rev = "v${version}";
-    sha256 = "sha256-ykPJneCKbFKv0x/EDo9PkRb1LkMeFeYzTDmvE3ShNe0=";
+    rev = "86635d962fab0d6c590937a050013ba0d1f6e4f5";
+    sha256 = "sha256-HHbka5Zbb9xoWcYp230sfskO19YDp7C+N92Ipr6WRM0=";
   };
 
   nativeBuildInputs = [ wrapGAppsHook ];
@@ -128,9 +127,6 @@ buildPythonApplication rec {
 
   # unhardcodes xrandr and fixes nosetests
   # upstream in progress: https://github.com/lutris/lutris/pull/3754
-  patches = [
-    ./fixes.patch
-  ];
 
   # avoid double wrapping
   dontWrapGApps = true;
